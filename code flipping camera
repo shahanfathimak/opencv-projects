@@ -1,0 +1,16 @@
+import cv2 as cv
+import mediapipe.python.solutions.hands as mpHands
+import mediapipe.python.solutions.drawing_utils as drawings
+cam=cv.VideoCapture(0)
+
+while True:
+    success,frame=cam.read()
+    if not success:
+        print("camera not detected...")
+    frame=cv.flip(frame,1)
+    cv.imshow("HAND LAND MARKS",frame)
+    if cv.waitKey(1)==ord('q'):
+        break
+
+cam.release()
+cv.destroyAllWindows()
